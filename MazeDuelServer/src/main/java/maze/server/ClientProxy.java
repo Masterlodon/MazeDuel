@@ -67,4 +67,9 @@ public class ClientProxy implements Runnable
             e.printStackTrace();
         }
     }
+
+    public void send(Message message)
+    {
+        //TODO
+    }
 }

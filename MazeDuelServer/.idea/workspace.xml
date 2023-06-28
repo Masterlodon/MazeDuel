@@ -5,8 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02511810-ee4b-4874-b1bf-fc1f0ccee5f8" name="Changes" comment="Sockets und Messages">
+      <change afterPath="$PROJECT_DIR$/../MazeDuelClient/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MazeDuelClient/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/maze/client/ServerProxy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MazeDuelClient/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MazeDuelClient/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MazeDuelClient/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MazeDuelClient/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/gui/mazeduelclient/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/gui/mazeduelclient/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/gui/mazeduelclient/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/gui/mazeduelclient/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MazeDuelClient/src/main/resources/gui/mazeduelclient/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../MazeDuelClient/src/main/resources/gui/mazeduelclient/login-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/maze/database/MazeData.accdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/maze/database/MazeData.accdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/maze/server/ClientProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maze/server/ClientProxy.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
