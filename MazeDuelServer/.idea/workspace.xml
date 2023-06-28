@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02511810-ee4b-4874-b1bf-fc1f0ccee5f8" name="Changes" comment="Bisschen sockets">
-      <change afterPath="$PROJECT_DIR$/src/main/java/maze/message/LoginMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/maze/message/SignUpMessage.java" afterDir="false" />
+    <list default="true" id="02511810-ee4b-4874-b1bf-fc1f0ccee5f8" name="Changes" comment="Sockets und Messages">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maze/message/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maze/message/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maze/server/ClientProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maze/server/ClientProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maze/server/Entrance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maze/server/Entrance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/maze/database/MazeData.accdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/maze/database/MazeData.accdb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +58,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687944823575</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Sockets und Messages">
+      <created>1687946127259</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1687946127259</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -78,6 +81,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Bisschen sockets" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bisschen sockets" />
+    <MESSAGE value="Sockets und Messages" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sockets und Messages" />
   </component>
 </project>
