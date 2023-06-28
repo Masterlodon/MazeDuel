@@ -1,6 +1,8 @@
 package maze.server;
 
+import maze.message.LoginMessage;
 import maze.message.Message;
+import maze.message.SignUpMessage;
 
 import java.io.*;
 import java.net.Socket;
@@ -29,7 +31,8 @@ public class ClientProxy implements Runnable
         }
         catch (Exception e)
         {
-            System.out.println("Error in clientProxy.Constructor");
+            System.err.println("Error in clientProxy.Constructor");
+            e.printStackTrace();
         }
     }
 
@@ -40,14 +43,27 @@ public class ClientProxy implements Runnable
 
         try
         {
-            while((o = (Message) in.readObject()) != null)
+            while((o = (Message) in.readObject()) != null && !exit)
             {
-
+                if(o.getType() == LoginMessage.class)
+                {
+                    LoginMessage message = (LoginMessage) o;
+                    System.out.println(message.getUserName() + " tried to log in with " + message.getPasswordHash() + ".");
+                }
+                else if(o.getType() == SignUpMessage.class)
+                {
+                    SignUpMessage message = (SignUpMessage) o;
+                    System.out.println(message.getUserName() + " tried to sign up with " + message.getPasswordHash() + ".");
+                }
+                else
+                {
+                    System.err.println("Unrecognizable message detected.\n" + o);
+                }
             }
         }
         catch (Exception e)
         {
-            System.out.println("Error in clientProxy.run.");
+            System.err.println("Error in clientProxy.run.");
             e.printStackTrace();
         }
     }

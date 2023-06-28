@@ -31,7 +31,7 @@ public class Entrance implements Runnable
         }
         catch (Exception e)
         {
-            System.out.println("Error in entrance.run.");
+            System.err.println("Error in entrance.run.");
             e.printStackTrace();
         }
     }
