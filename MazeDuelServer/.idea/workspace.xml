@@ -4,40 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02511810-ee4b-4874-b1bf-fc1f0ccee5f8" name="Changes" comment="Server send method todo">
-      <change afterPath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/gui/mazeduelclient/Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/gui/mazeduelclient/MainScreenController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/gui/mazeduelclient/SignUpController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/maze/database/data/MainData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/maze/database/data/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/maze/message/LogOutMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MazeDuelClient/src/main/resources/gui/mazeduelclient/mainScreen-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MazeDuelClient/src/main/resources/gui/mazeduelclient/signUp-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/maze/database/DBFunctions.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/maze/database/DBUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/maze/game/Cell.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/maze/game/Maze.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/maze/message/LoginFailedMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/maze/message/LoginSuccessMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/maze/message/SignUpFailedMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/maze/message/SignUpRequestMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/maze/message/SignUpSuccessMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MazeDuelClient/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MazeDuelClient/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/gui/mazeduelclient/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/gui/mazeduelclient/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/gui/mazeduelclient/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/gui/mazeduelclient/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/maze/client/ServerProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/maze/client/ServerProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/maze/message/LoginMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maze/message/LoginRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/maze/message/SignUpMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/maze/message/SignUpRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MazeDuelClient/src/main/resources/gui/mazeduelclient/login-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../MazeDuelClient/src/main/resources/gui/mazeduelclient/login-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maze/database/data/MainData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maze/database/data/MainData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maze/database/data/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maze/database/data/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maze/message/LoginMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/maze/message/LoginRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maze/message/SignUpMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maze/server/ClientProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maze/server/ClientProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maze/server/Entrance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maze/server/Entrance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/maze/database/MazeData.accdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/maze/database/MazeData.accdb" afterDir="false" />
-    </list>
+    <list default="true" id="02511810-ee4b-4874-b1bf-fc1f0ccee5f8" name="Changes" comment="Server send method todo" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -133,7 +100,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687948415221</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Server send method todo">
+      <created>1688116686223</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1688116686223</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
