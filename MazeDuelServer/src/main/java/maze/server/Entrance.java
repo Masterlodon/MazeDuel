@@ -20,7 +20,7 @@ public class Entrance implements Runnable
         {
             while(!exit)
             {
-                ServerSocket server = new ServerSocket(5555);
+                ServerSocket server = new ServerSocket(8006);
                 System.out.println("The server is now listening.");
 
                 Socket socket = server.accept();

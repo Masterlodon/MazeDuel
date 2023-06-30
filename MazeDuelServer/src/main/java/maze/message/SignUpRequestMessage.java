@@ -1,23 +1,15 @@
-package maze.database.data;
+package maze.message;
 
-import java.io.Serializable;
-
-public class User implements Serializable
+public class SignUpRequestMessage extends Message
 {
-    private int id;
     private String userName;
     private int passwordHash;
 
-    public User(int id, String userName, int passwordHash)
+    public SignUpRequestMessage(String userName, int passwordHash)
     {
-        this.id = id;
+        super(SignUpRequestMessage.class);
         this.userName = userName;
         this.passwordHash = passwordHash;
-    }
-
-    public int getId()
-    {
-        return id;
     }
 
     public String getUserName()

@@ -1,13 +1,13 @@
 package maze.message;
 
-public class LoginMessage extends Message
+public class LoginRequestMessage extends Message
 {
     private String userName;
     private int passwordHash;
 
-    public LoginMessage(String userName, int passwordHash)
+    public LoginRequestMessage(String userName, int passwordHash)
     {
-        super(LoginMessage.class);
+        super(LoginRequestMessage.class);
         this.userName = userName;
         this.passwordHash = passwordHash;
     }

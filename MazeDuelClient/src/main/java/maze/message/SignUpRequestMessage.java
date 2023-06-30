@@ -1,13 +1,13 @@
 package maze.message;
 
-public class SignUpMessage extends Message
+public class SignUpRequestMessage extends Message
 {
     private String userName;
     private int passwordHash;
 
-    public SignUpMessage(String userName, int passwordHash)
+    public SignUpRequestMessage(String userName, int passwordHash)
     {
-        super(SignUpMessage.class);
+        super(SignUpRequestMessage.class);
         this.userName = userName;
         this.passwordHash = passwordHash;
     }
