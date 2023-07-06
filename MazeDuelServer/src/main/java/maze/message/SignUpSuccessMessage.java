@@ -1,19 +1,19 @@
 package maze.message;
 
-import maze.database.data.User;
+import maze.database.data.MainData;
 
 public class SignUpSuccessMessage extends Message
 {
-    private User user;
+    private MainData mainData;
 
-    public SignUpSuccessMessage(User user)
+    public SignUpSuccessMessage(MainData mainData)
     {
         super(SignUpSuccessMessage.class);
-        this.user = user;
+        this.mainData = mainData;
     }
 
-    public User getUser()
+    public MainData getMainData()
     {
-        return user;
+        return mainData;
     }
 }

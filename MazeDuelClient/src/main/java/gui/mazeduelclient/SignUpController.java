@@ -10,7 +10,6 @@ import java.util.ResourceBundle;
 
 public class SignUpController implements Initializable
 {
-    boolean waitingForResponse;
     @FXML
     private TextField textFieldUserName;
     @FXML
@@ -21,19 +20,13 @@ public class SignUpController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
-        waitingForResponse = false;
         Application.getInstance().getController().registerSignUpController(this);
-    }
-
-    public void setWaitingForResponse(boolean waitingForConfirmation)
-    {
-        this.waitingForResponse = waitingForConfirmation;
     }
 
     @FXML
     private void signUp()
     {
-        if(waitingForResponse == false)
+        if(Application.getInstance().getController().isWaitingForResponse() == false)
         {
             if(textFieldUserName.getText().length() > 0)
             {
@@ -44,7 +37,7 @@ public class SignUpController implements Initializable
                         if(textFieldPassword.getText().equals(textFieldConfirmPassword.getText()))
                         {
                             Application.getInstance().getServer().send(new SignUpRequestMessage(textFieldUserName.getText(), textFieldPassword.getText().hashCode()));
-                            waitingForResponse = true;
+                            Application.getInstance().getController().setWaitingForResponse(true);
                         }
                         else
                         {

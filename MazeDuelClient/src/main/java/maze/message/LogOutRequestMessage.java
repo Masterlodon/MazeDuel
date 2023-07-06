@@ -2,13 +2,13 @@ package maze.message;
 
 import maze.database.data.User;
 
-public class LogOutMessage extends Message
+public class LogOutRequestMessage extends Message
 {
     private User user;
 
-    public LogOutMessage(User user)
+    public LogOutRequestMessage(User user)
     {
-        super(LogOutMessage.class);
+        super(LogOutRequestMessage.class);
         this.user = user;
     }
 

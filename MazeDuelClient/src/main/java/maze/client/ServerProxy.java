@@ -8,6 +8,7 @@ import maze.message.*;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.net.SocketException;
 
 public class ServerProxy implements Runnable
 {
@@ -58,6 +59,18 @@ public class ServerProxy implements Runnable
                 {
                     receiveSignUpSuccessMessage((SignUpSuccessMessage) o);
                 }
+                else if(o.getType() == LogOutSuccessMessage.class)
+                {
+                    receiveLogOutSuccessMessage();
+                }
+                else if(o.getType() == NewGameSuccessMessage.class)
+                {
+                    receiveNewGameSuccessMessage((NewGameSuccessMessage) o);
+                }
+                else if(o.getType() == LeaveGameSuccessMessage.class)
+                {
+                    receiveLeaveGameSuccessMessage((LeaveGameSuccessMessage) o);
+                }
                 else
                 {
                     System.err.println("Unrecognizable message detected.\n" + o);
@@ -66,8 +79,16 @@ public class ServerProxy implements Runnable
         }
         catch (Exception e)
         {
-            System.err.println("Error in serverProxy.run.");
-            e.printStackTrace();
+            try
+            {
+                socket.close();
+            }
+            catch (Exception ex)
+            {
+                System.err.println("Error in serverProxy.run.");
+                ex.printStackTrace();
+            }
+            System.err.println("Connection to server was lost.");
         }
     }
 
@@ -87,33 +108,66 @@ public class ServerProxy implements Runnable
 
     public void receiveLoginFailedMessage(LoginFailedMessage message)
     {
-        Application.getInstance().getController().getLoginController().setWaitingForResponse(false);
         System.out.println(message.getContents());
+        Application.getInstance().getController().setWaitingForResponse(false);
     }
 
     public void receiveLoginSuccessMessage(LoginSuccessMessage message)
     {
-        MainData.setInstance(new MainData(message.getUser()));
-        System.out.println("Successfully logged in as " + message.getUser().getUserName() + ".");
+        MainData.setInstance(message.getMainData());
+        System.out.println("Successfully logged in as " + message.getMainData().getUser().getUserName() + ".");
         Platform.runLater(() ->
         {
             Application.getInstance().loadSceneMainScreen();
         });
+        Application.getInstance().getController().setWaitingForResponse(false);
     }
 
     public void receiveSignUpFailedMessage(SignUpFailedMessage message)
     {
-        Application.getInstance().getController().getSignUpController().setWaitingForResponse(false);
         System.out.println(message.getContents());
+        Application.getInstance().getController().setWaitingForResponse(false);
     }
 
     public void receiveSignUpSuccessMessage(SignUpSuccessMessage message)
     {
-        MainData.setInstance(new MainData(message.getUser()));
-        System.out.println("Successfully signed up as " + message.getUser().getUserName() + ".");
+        MainData.setInstance(message.getMainData());
+        System.out.println("Successfully signed up as " + message.getMainData().getUser().getUserName() + ".");
         Platform.runLater(() ->
         {
             Application.getInstance().loadSceneMainScreen();
         });
+        Application.getInstance().getController().setWaitingForResponse(false);
+    }
+
+    public void receiveLogOutSuccessMessage()
+    {
+        System.out.println("Successfully logged out.");
+        Platform.runLater(() ->
+        {
+            Application.getInstance().loadSceneLogin();
+        });
+        Application.getInstance().getController().setWaitingForResponse(false);
+    }
+
+    public void receiveNewGameSuccessMessage(NewGameSuccessMessage message)
+    {
+        System.out.println("Successfully started a new game.");
+        Platform.runLater(() ->
+        {
+            Application.getInstance().loadSceneEditMaze();
+        });
+        Application.getInstance().getController().setWaitingForResponse(false);
+    }
+
+    public void receiveLeaveGameSuccessMessage(LeaveGameSuccessMessage message)
+    {
+        System.out.println("Successfully left the game.");
+        Application.getInstance().getController().setGame(null);
+        Platform.runLater(() ->
+        {
+            Application.getInstance().loadSceneMainScreen();
+        });
+        Application.getInstance().getController().setWaitingForResponse(false);
     }
 }

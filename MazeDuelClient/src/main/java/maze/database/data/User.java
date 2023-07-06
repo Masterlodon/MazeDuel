@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class User implements Serializable
 {
+    private static final long serialVersionUID = "User".hashCode();
     private int id;
     private String userName;
     private int passwordHash;
@@ -28,5 +29,11 @@ public class User implements Serializable
     public int getPasswordHash()
     {
         return passwordHash;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "Id: " + id + ", UserName: " + userName;
     }
 }

@@ -4,7 +4,73 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02511810-ee4b-4874-b1bf-fc1f0ccee5f8" name="Changes" comment="Server send method todo" />
+    <list default="true" id="02511810-ee4b-4874-b1bf-fc1f0ccee5f8" name="Changes" comment="Server send method todo">
+      <change afterPath="$PROJECT_DIR$/../MazeDuelClient/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/gui/elements/MazeGridPane.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/gui/mazeduelclient/EditMazeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/gui/mazeduelclient/JoinGameController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/gui/mazeduelclient/NewGameController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/maze/message/LeaveGameRequestMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/maze/message/LeaveGameSuccessMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/maze/message/LogOutSuccessMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/maze/message/NewGameRequestMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/maze/message/NewGameSuccessMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/maze/message/RequestGamesMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/maze/message/SendGamesMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MazeDuelClient/src/main/resources/gui/mazeduelclient/joinGame-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MazeDuelClient/src/main/resources/gui/mazeduelclient/newGame-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/jsonHandler/JsonHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/jsonHandler/JsonPrivateAccessor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/maze/game/Competitor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/maze/game/Game.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/maze/message/LogOutRequestMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/maze/message/LogOutSuccessMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/maze/message/NewGameRequestMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/maze/message/NewGameSuccessMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MazeDuelClient/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MazeDuelClient/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/gui/mazeduelclient/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/gui/mazeduelclient/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/gui/mazeduelclient/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/gui/mazeduelclient/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/gui/mazeduelclient/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/gui/mazeduelclient/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/gui/mazeduelclient/MainScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/gui/mazeduelclient/MainScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/gui/mazeduelclient/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/gui/mazeduelclient/SignUpController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/maze/client/ServerProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/maze/client/ServerProxy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/maze/database/data/MainData.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/maze/database/data/MainData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/maze/database/data/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/maze/database/data/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/maze/message/LogOutMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/maze/message/LogOutRequestMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/maze/message/LoginSuccessMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/maze/message/LoginSuccessMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/maze/message/SignUpSuccessMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MazeDuelClient/src/main/java/maze/message/SignUpSuccessMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MazeDuelClient/src/main/resources/gui/mazeduelclient/main-screen-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../MazeDuelClient/src/main/resources/gui/mazeduelclient/editMaze-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MazeDuelClient/src/main/resources/gui/mazeduelclient/mainScreen-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../MazeDuelClient/src/main/resources/gui/mazeduelclient/mainScreen-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/maze/database/data/MainData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maze/database/data/MainData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/maze/database/data/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maze/database/data/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/maze/message/LoginSuccessMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maze/message/LoginSuccessMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/maze/message/SignUpSuccessMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maze/message/SignUpSuccessMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/maze/server/ClientProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maze/server/ClientProxy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/maze/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maze/server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/maze/database/MazeData.accdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/maze/database/MazeData.accdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/maze/database/AccessConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/maze/database/AccessConnection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/maze/database/DBFunctions.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/maze/database/DBFunctions.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/maze/database/DBTestDriver.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/maze/database/DBTestDriver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/maze/database/DBUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/maze/database/DBUser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/maze/database/MazeData.accdb" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/maze/database/MazeData.accdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/maze/database/MazeData.laccdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/maze/database/data/MainData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/maze/database/data/MainData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/maze/database/data/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/maze/database/data/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/maze/game/Cell.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/maze/game/Cell.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/maze/game/Maze.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/maze/game/Maze.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/maze/message/LoginFailedMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/maze/message/LoginFailedMessage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/maze/message/LoginRequestMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/maze/message/LoginRequestMessage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/maze/message/LoginSuccessMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/maze/message/LoginSuccessMessage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/maze/message/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/maze/message/Message.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/maze/message/SignUpFailedMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/maze/message/SignUpFailedMessage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/maze/message/SignUpRequestMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/maze/message/SignUpRequestMessage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/maze/message/SignUpSuccessMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/maze/message/SignUpSuccessMessage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/maze/server/ClientProxy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/maze/server/ClientProxy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/maze/server/Entrance.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/maze/server/Entrance.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/maze/server/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/maze/server/Server.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,6 +79,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -31,14 +98,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "H:/Java/Intellij/MazeDuel/MazeDuelClient"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;H:/Java/Intellij/MazeDuel/MazeDuelServer&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.maze.server.Server">
     <configuration name="Server" type="Application" factoryName="Application" activateToolWindowBeforeRun="false">
       <option name="MAIN_CLASS_NAME" value="org.hsqldb.Server" />

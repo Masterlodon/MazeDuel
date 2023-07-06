@@ -1,9 +1,10 @@
 package maze.server;
 
-import maze.database.AccessConnection;
 import maze.database.DBFunctions;
 import maze.database.DBUser;
+import maze.database.data.MainData;
 import maze.database.data.User;
+import maze.game.Game;
 import maze.message.*;
 
 import java.io.*;
@@ -20,6 +21,11 @@ public class ClientProxy implements Runnable
     public Socket getSocket()
     {
         return socket;
+    }
+
+    public User getUser()
+    {
+        return user;
     }
 
     public ClientProxy(Socket socket)
@@ -56,6 +62,18 @@ public class ClientProxy implements Runnable
                 {
                     receiveSignUpRequestMessage((SignUpRequestMessage) o);
                 }
+                else if(o.getType() == LogOutRequestMessage.class)
+                {
+                    receiveLogOutRequestMessage((LogOutRequestMessage) o);
+                }
+                else if(o.getType() == NewGameRequestMessage.class)
+                {
+                    receiveNewGameRequestMessage((NewGameRequestMessage) o);
+                }
+                else if(o.getType() == LeaveGameRequestMessage.class)
+                {
+                    receiveLeaveGameRequestMessage((LeaveGameRequestMessage) o);
+                }
                 else
                 {
                     System.err.println("Unrecognizable message detected.\n" + o);
@@ -67,6 +85,13 @@ public class ClientProxy implements Runnable
             if(user != null)
             {
                 System.err.println("Connection to " + user.getUserName() + " was lost.");
+                if(user.getGame() != null)
+                {
+                    user.getGame().removeCompetitor(user);
+                    Server.getInstance().removeEmptyGames();
+                }
+                //Display games
+                Server.getInstance().displayGames();
             }
             else
             {
@@ -105,9 +130,9 @@ public class ClientProxy implements Runnable
         else
         {
             System.out.println(message.getUserName() + " successfully logged in.");
-            User user = DBUser.getUserByUserName(message.getUserName());
-            this.user = user;
-            send(new LoginSuccessMessage(user));
+            user = DBUser.getUserByUserName(message.getUserName());
+            user.setClient(this);
+            send(new LoginSuccessMessage(new MainData(user)));
         }
     }
 
@@ -117,14 +142,48 @@ public class ClientProxy implements Runnable
         {
             DBFunctions.commit();
             System.out.println(message.getUserName() + " successfully created their account.");
-            User user = DBUser.getUserByUserName(message.getUserName());
-            this.user = user;
-            send(new SignUpSuccessMessage(user));
+            user = DBUser.getUserByUserName(message.getUserName());
+            user.setClient(this);
+            send(new SignUpSuccessMessage(new MainData(user)));
         }
         else
         {
             System.out.println("Someone tried to sign up with username " + message.getUserName() + ".");
             send(new SignUpFailedMessage(message.getUserName() + " is already taken."));
         }
+    }
+
+    public void receiveLogOutRequestMessage(LogOutRequestMessage message)
+    {
+        System.out.println(message.getUser().getUserName() + " logged out.");
+        Server.getInstance().removeClient(this);
+        send(new LogOutSuccessMessage());
+        try
+        {
+            socket.close();
+        }
+        catch (Exception e)
+        {
+            System.err.println("Error in clientProxy.receiveLogOutRequestMessage.");
+            e.printStackTrace();
+        }
+    }
+
+    public void receiveNewGameRequestMessage(NewGameRequestMessage message)
+    {
+        user.setGame(new Game(user, message.getWidth(), message.getHeight(), message.isPublicGame()));
+        Server.getInstance().addGame(user.getGame());
+        //Display games
+        Server.getInstance().displayGames();
+        send(new NewGameSuccessMessage());
+    }
+
+    public void receiveLeaveGameRequestMessage(LeaveGameRequestMessage message)
+    {
+        user.getGame().removeCompetitor(user);
+        Server.getInstance().removeEmptyGames();
+        //Display games
+        Server.getInstance().displayGames();
+        send(new LeaveGameSuccessMessage());
     }
 }
