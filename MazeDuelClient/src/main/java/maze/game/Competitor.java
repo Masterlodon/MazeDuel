@@ -2,7 +2,9 @@ package maze.game;
 
 import maze.database.data.User;
 
-public class Competitor
+import java.io.Serializable;
+
+public class Competitor implements Serializable
 {
     private User user;
     private Maze maze;
@@ -21,6 +23,16 @@ public class Competitor
     public Maze getMaze()
     {
         return maze;
+    }
+
+    public int getWidth()
+    {
+        return maze.getWidth();
+    }
+
+    public int getHeight()
+    {
+        return maze.getHeight();
     }
 
     @Override

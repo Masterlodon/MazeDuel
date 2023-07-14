@@ -1,7 +1,10 @@
 package maze.game;
 
-public class Maze
+import java.io.Serializable;
+
+public class Maze implements Serializable
 {
+    private static final long serialVersionUID = "Maze".hashCode();
     private int width;
     private int height;
     private Cell[][] cells;
@@ -25,18 +28,18 @@ public class Maze
         }
     }
 
-    public void renderEdit()
+    public int getWidth()
     {
-
+        return width;
     }
 
-    public void renderInGame()
+    public int getHeight()
     {
-
+        return height;
     }
 
-    public void renderSpectate()
+    public Cell[][] getCells()
     {
-
+        return cells;
     }
 }

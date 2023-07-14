@@ -1,6 +1,8 @@
 package maze.game;
 
-public class Cell
+import java.io.Serializable;
+
+public class Cell implements Serializable
 {
     private String element;
     private boolean visible;

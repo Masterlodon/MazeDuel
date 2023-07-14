@@ -13,8 +13,8 @@
    <AnchorPane prefHeight="440.0" prefWidth="702.0">
       <children>
          <Button layoutX="609.0" layoutY="14.0" mnemonicParsing="false" onAction="#logOut" text="Log out" />
-         <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Game history" />
-         <Button layoutX="109.0" layoutY="14.0" mnemonicParsing="false" text="Socials" />
+         <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#mazeHistory" text="Game history" />
+         <Button layoutX="109.0" layoutY="14.0" mnemonicParsing="false" onAction="#socials" text="Socials" />
          <Button layoutX="266.0" layoutY="181.0" mnemonicParsing="false" onAction="#newGame" text="Start new game">
             <font>
                <Font size="18.0" />

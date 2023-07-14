@@ -1,21 +1,21 @@
 package maze.message;
 
-import maze.game.Game;
+import maze.game.GameJoinInfo;
 
 import java.util.ArrayList;
 
 public class SendGamesMessage extends Message
 {
-    private ArrayList<Game> games;
+    private ArrayList<GameJoinInfo> info;
 
-    public SendGamesMessage(ArrayList<Game> games)
+    public SendGamesMessage(ArrayList<GameJoinInfo> info)
     {
         super(SendGamesMessage.class);
-        this.games = games;
+        this.info = info;
     }
 
-    public ArrayList<Game> getGames()
+    public ArrayList<GameJoinInfo> getInfo()
     {
-        return games;
+        return info;
     }
 }

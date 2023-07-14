@@ -1,17 +1,21 @@
 package gui.mazeduelclient;
 
+import maze.game.Competitor;
 import maze.game.Game;
 
 public class Controller
 {
     private boolean waitingForResponse;
     private Game game;
+    private Competitor competitor;
     private LoginController loginController;
     private SignUpController signUpController;
     private MainScreenController mainScreenController;
     private NewGameController newGameController;
     private EditMazeController editMazeController;
     private JoinGameController joinGameController;
+    private FriendsController friendsController;
+    private AddFriendController addFriendController;
 
     public Controller()
     {
@@ -48,6 +52,16 @@ public class Controller
         this.joinGameController = joinGameController;
     }
 
+    public void registerFriendsController(FriendsController friendsController)
+    {
+        this.friendsController = friendsController;
+    }
+
+    public void registerAddFriendController(AddFriendController addFriendController)
+    {
+        this.addFriendController = addFriendController;
+    }
+
     public LoginController getLoginController()
     {
         return loginController;
@@ -78,6 +92,16 @@ public class Controller
         return joinGameController;
     }
 
+    public FriendsController getFriendsController()
+    {
+        return friendsController;
+    }
+
+    public AddFriendController getAddFriendController()
+    {
+        return addFriendController;
+    }
+
     public boolean isWaitingForResponse()
     {
         return waitingForResponse;
@@ -96,5 +120,15 @@ public class Controller
     public void setGame(Game game)
     {
         this.game = game;
+    }
+
+    public Competitor getCompetitor()
+    {
+        return competitor;
+    }
+
+    public void setCompetitor(Competitor competitor)
+    {
+        this.competitor = competitor;
     }
 }

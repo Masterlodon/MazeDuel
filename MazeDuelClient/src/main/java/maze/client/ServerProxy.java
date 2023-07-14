@@ -2,13 +2,15 @@ package maze.client;
 
 import gui.mazeduelclient.Application;
 import javafx.application.Platform;
+import maze.database.DBUser;
+import maze.database.data.Friendship;
 import maze.database.data.MainData;
+import maze.game.Competitor;
 import maze.message.*;
 
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
-import java.net.SocketException;
 
 public class ServerProxy implements Runnable
 {
@@ -70,6 +72,46 @@ public class ServerProxy implements Runnable
                 else if(o.getType() == LeaveGameSuccessMessage.class)
                 {
                     receiveLeaveGameSuccessMessage((LeaveGameSuccessMessage) o);
+                }
+                else if(o.getType() == SendGamesMessage.class)
+                {
+                    receiveSendGamesMessage((SendGamesMessage) o);
+                }
+                else if(o.getType() == ActivateInfoUpdatesMessage.class)
+                {
+                    receiveActivateInfoUpdatesMessage((ActivateInfoUpdatesMessage) o);
+                }
+                else if(o.getType() == JoinGameSuccessMessage.class)
+                {
+                    receiveJoinGameSuccessMessage((JoinGameSuccessMessage) o);
+                }
+                else if(o.getType() == UpdateCompetitorsMessage.class)
+                {
+                    receiveUpdateCompetitorsMessage((UpdateCompetitorsMessage) o);
+                }
+                else if(o.getType() == FriendJoinedMessage.class)
+                {
+                    receiveFriendJoinedMessage((FriendJoinedMessage) o);
+                }
+                else if(o.getType() == FriendLeftMessage.class)
+                {
+                    receiveFriendLeftMessage((FriendLeftMessage) o);
+                }
+                else if(o.getType() == GetPlayersSuccessMessage.class)
+                {
+                    receiveGetPlayersSuccessMessage((GetPlayersSuccessMessage) o);
+                }
+                else if(o.getType() == FriendRequestFailedMessage.class)
+                {
+                    receiveFriendRequestFailedMessage((FriendRequestFailedMessage) o);
+                }
+                else if(o.getType() == FriendRequestSuccessMessage.class)
+                {
+                    receiveFriendRequestSuccessMessage((FriendRequestSuccessMessage) o);
+                }
+                else if(o.getType() == FriendRequestMessage.class)
+                {
+                    receiveFriendRequestMessage((FriendRequestMessage) o);
                 }
                 else
                 {
@@ -169,5 +211,100 @@ public class ServerProxy implements Runnable
             Application.getInstance().loadSceneMainScreen();
         });
         Application.getInstance().getController().setWaitingForResponse(false);
+    }
+
+    public void receiveSendGamesMessage(SendGamesMessage message)
+    {
+        System.out.println("Received game info.");
+        Platform.runLater(() ->
+        {
+            Application.getInstance().getController().getJoinGameController().loadGames(message.getInfo());
+        });
+        Application.getInstance().getController().setWaitingForResponse(false);
+    }
+
+    public void receiveActivateInfoUpdatesMessage(ActivateInfoUpdatesMessage message)
+    {
+        Platform.runLater(() ->
+        {
+            Application.getInstance().finishLoadSceneJoinGame();
+        });
+    }
+
+    public void receiveJoinGameSuccessMessage(JoinGameSuccessMessage message)
+    {
+        message.getGame().fillReferences(MainData.getInstance().getUser());
+        System.out.println("Successfully joined " + message.getGame().getHost().getUser().getUserName() + "'s game.");
+        Application.getInstance().getController().setGame(message.getGame());
+        for(Competitor competitor : message.getGame().getCompetitors())
+        {
+            if(competitor.getUser().getId() == MainData.getInstance().getUser().getId())
+            {
+                Application.getInstance().getController().setCompetitor(competitor);
+            }
+        }
+        Platform.runLater(() ->
+        {
+            Application.getInstance().loadSceneEditMaze();
+        });
+        Application.getInstance().getController().setWaitingForResponse(false);
+        send(new DeactivateInfoUpdatesMessage());
+    }
+
+    public void receiveUpdateCompetitorsMessage(UpdateCompetitorsMessage message)
+    {
+        message.getGame().fillReferences(MainData.getInstance().getUser());
+        Platform.runLater(() ->
+        {
+            Application.getInstance().getController().getEditMazeController().loadCompetitors(message.getGame());
+        });
+    }
+
+    public void receiveFriendJoinedMessage(FriendJoinedMessage message)
+    {
+        DBUser.getUserById(message.getUserId()).setOnline(true);
+    }
+
+    public void receiveFriendLeftMessage(FriendLeftMessage message)
+    {
+        DBUser.getUserById(message.getUserId()).setOnline(false);
+    }
+
+    public void receiveGetPlayersSuccessMessage(GetPlayersSuccessMessage message)
+    {
+        System.out.println("Received all users from server.");
+        Application.getInstance().getController().getAddFriendController().setUsers(message.getUsers());
+        Platform.runLater(() ->
+        {
+            Application.getInstance().finishLoadSceneAddFriend();
+        });
+    }
+
+    public void receiveFriendRequestFailedMessage(FriendRequestFailedMessage message)
+    {
+        System.out.println(message.getContents());
+        Application.getInstance().getController().setWaitingForResponse(false);
+    }
+
+    public void receiveFriendRequestSuccessMessage(FriendRequestSuccessMessage message)
+    {
+        System.out.println("Successfully send the friend request.");
+        MainData.getInstance().getUsers().add(message.getReceiver());
+        MainData.getInstance().getFriendRequests().add(message.getFriendRequest());
+        Platform.runLater(() ->
+        {
+            Application.getInstance().getController().getAddFriendController().updateSendRequestCount();
+        });
+        Application.getInstance().getController().setWaitingForResponse(false);
+    }
+
+    public void receiveFriendRequestMessage(FriendRequestMessage message)
+    {
+        MainData.getInstance().getUsers().add(message.getSender());
+        MainData.getInstance().getFriendRequests().add(message.getFriendRequest());
+        Platform.runLater(() ->
+        {
+            Application.getInstance().getController().getAddFriendController().updateReceivedRequestCount();
+        });
     }
 }

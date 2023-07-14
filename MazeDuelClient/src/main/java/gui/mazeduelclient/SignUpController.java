@@ -2,6 +2,7 @@ package gui.mazeduelclient;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import maze.message.SignUpRequestMessage;
 
@@ -13,9 +14,9 @@ public class SignUpController implements Initializable
     @FXML
     private TextField textFieldUserName;
     @FXML
-    private TextField textFieldPassword;
+    private PasswordField passwordFieldInput;
     @FXML
-    private TextField textFieldConfirmPassword;
+    private PasswordField passwordFieldConfirm;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
@@ -30,13 +31,13 @@ public class SignUpController implements Initializable
         {
             if(textFieldUserName.getText().length() > 0)
             {
-                if(textFieldPassword.getText().length() > 0)
+                if(passwordFieldInput.getText().length() > 0)
                 {
-                    if(textFieldConfirmPassword.getText().length() > 0)
+                    if(passwordFieldConfirm.getText().length() > 0)
                     {
-                        if(textFieldPassword.getText().equals(textFieldConfirmPassword.getText()))
+                        if(passwordFieldInput.getText().equals(passwordFieldConfirm.getText()))
                         {
-                            Application.getInstance().getServer().send(new SignUpRequestMessage(textFieldUserName.getText(), textFieldPassword.getText().hashCode()));
+                            Application.getInstance().getServer().send(new SignUpRequestMessage(textFieldUserName.getText(), passwordFieldInput.getText().hashCode()));
                             Application.getInstance().getController().setWaitingForResponse(true);
                         }
                         else

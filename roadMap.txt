@@ -1,1 +1,7 @@
-make login/signupSuccessMessage transfer all data
+friend request adden
+friend system requests
+host leaves execption fix
+maze game
+maze history
+max players option
+kick option for host

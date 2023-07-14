@@ -41,4 +41,16 @@ public class MainScreenController implements Initializable
     {
         Application.getInstance().loadSceneJoinGame();
     }
+
+    @FXML
+    private void socials()
+    {
+        Application.getInstance().loadSceneFriends();
+    }
+
+    @FXML
+    private void mazeHistory()
+    {
+
+    }
 }

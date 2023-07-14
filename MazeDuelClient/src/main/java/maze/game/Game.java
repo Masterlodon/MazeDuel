@@ -2,13 +2,17 @@ package maze.game;
 
 import maze.database.data.User;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Game
+public class Game implements Serializable
 {
     private int width;
     private int height;
     private ArrayList<Competitor> competitors;
+    private transient Competitor player;
+    private transient Competitor host;
+    private int hostId;
     private boolean publicGame;
 
     public Game(ArrayList<User> users, int width, int height, boolean publicGame)
@@ -18,6 +22,12 @@ public class Game
         {
             competitors.add(new Competitor(user, width, height));
         }
+        if(competitors.size() >= 1)
+        {
+            host = competitors.get(0);
+            player = host;
+            hostId = host.getUser().getId();
+        }
         this.width = width;
         this.height = height;
         this.publicGame = publicGame;
@@ -25,11 +35,15 @@ public class Game
 
     public Game(User user, int width, int height, boolean publicGame)
     {
+        host = new Competitor(user, width, height);
+        player = host;
+        hostId = host.getUser().getId();
         competitors = new ArrayList<>();
-        competitors.add(new Competitor(user, width, height));
+        competitors.add(host);
         this.width = width;
         this.height = height;
         this.publicGame = publicGame;
+        System.out.println("Width: " + width + ", Height: " + height);
     }
 
     public ArrayList<Competitor> getCompetitors()
@@ -44,12 +58,17 @@ public class Game
 
     public void removeCompetitor(User user)
     {
+        ArrayList<Competitor> removed = new ArrayList<>();
         for(Competitor competitor : competitors)
         {
             if(competitor.getUser() == user)
             {
-                competitors.remove(competitor);
+                removed.add(competitor);
             }
+        }
+        for(Competitor competitor : removed)
+        {
+            competitors.remove(competitor);
         }
     }
 
@@ -66,6 +85,49 @@ public class Game
     public int getHeight()
     {
         return height;
+    }
+
+    public Competitor getHost()
+    {
+        return host;
+    }
+
+    public Competitor getPlayer()
+    {
+        return player;
+    }
+
+    public void setPlayer(Competitor player)
+    {
+        this.player = player;
+    }
+
+    public void fillReferences(User user)
+    {
+        fillHostReference();
+        fillPlayerReference(user);
+    }
+
+    public void fillHostReference()
+    {
+        for(Competitor competitor : competitors)
+        {
+            if(competitor.getUser().getId() == hostId)
+            {
+                host = competitor;
+            }
+        }
+    }
+
+    public void fillPlayerReference(User user)
+    {
+        for(Competitor competitor : competitors)
+        {
+            if(competitor.getUser().getId() == user.getId())
+            {
+                player = competitor;
+            }
+        }
     }
 
     @Override

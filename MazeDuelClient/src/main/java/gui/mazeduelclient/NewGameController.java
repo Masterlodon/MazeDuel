@@ -36,12 +36,12 @@ public class NewGameController implements Initializable
     {
         sliderWidth.valueProperty().addListener((observable, oldValue, newValue) ->
         {
-            textFieldWidth.setText(String.valueOf(newValue));
+            textFieldWidth.setText(String.valueOf(newValue.intValue()));
         });
 
         sliderHeight.valueProperty().addListener((observable, oldValue, newValue) ->
         {
-            textFieldHeight.setText(String.valueOf(newValue));
+            textFieldHeight.setText(String.valueOf(newValue.intValue()));
         });
     }
 
@@ -57,7 +57,8 @@ public class NewGameController implements Initializable
         if(Application.getInstance().getController().isWaitingForResponse() == false)
         {
             Application.getInstance().getController().setWaitingForResponse(true);
-            Game game = new Game(MainData.getInstance().getUser(), Integer.valueOf(textFieldWidth.getText()), Integer.valueOf(textFieldHeight.getText()), checkBoxPublic.isSelected());
+            Game game = new Game(MainData.getInstance().getUser(), (int)sliderWidth.getValue(), (int)sliderHeight.getValue(), checkBoxPublic.isSelected());
+            Application.getInstance().getController().setCompetitor(game.getCompetitors().get(0));
             Application.getInstance().getController().setGame(game);
             Application.getInstance().getServer().send(new NewGameRequestMessage(game.getWidth(), game.getHeight(), game.isPublicGame()));
         }

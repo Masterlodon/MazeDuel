@@ -1,5 +1,6 @@
 package maze.server;
 
+import maze.database.data.MainData;
 import maze.game.Game;
 
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ public class Server
 
     public static void main(String[] args)
     {
+        MainData.getInstance();
         instance = new Server();
     }
 
@@ -42,11 +44,18 @@ public class Server
     public void addGame(Game game)
     {
         games.add(game);
+        Broadcaster.updateGameInfo();
     }
 
     public void removeGame(Game game)
     {
         games.remove(game);
+        Broadcaster.updateGameInfo();
+    }
+
+    public ArrayList<Game> getGames()
+    {
+        return games;
     }
 
     public void removeEmptyGames()
@@ -63,6 +72,7 @@ public class Server
         {
             games.remove(game);
         }
+        Broadcaster.updateGameInfo();
     }
 
     public void displayGames()
